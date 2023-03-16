@@ -4,13 +4,13 @@ let gameState = 0;
 //individual cell ids into consts
 const a1 = document.querySelector("#a1");
 const a2 = document.getElementById("a2");
-// const a3 = document.getElementById("a3");
-// const b1 = document.getElementById("b1");
-// const b2 = document.getElementById("b2");
-// const b3 = document.getElementById("b3");
-// const c1 = document.getElementById("c1");
-// const c2 = document.getElementById("c2");
-// const c3 = document.getElementById("c3");
+const a3 = document.getElementById("a3");
+const b1 = document.getElementById("b1");
+const b2 = document.getElementById("b2");
+const b3 = document.getElementById("b3");
+const c1 = document.getElementById("c1");
+const c2 = document.getElementById("c2");
+const c3 = document.getElementById("c3");
 
 //addEventListeners
 a1.addEventListener("click", setGameMarker);
@@ -40,21 +40,26 @@ function setGameMarker() {
   //   else xTurn();
   if (gameState == 0 && this.innerHTML == false) {
     this.innerHTML = "O";
-    gameState++;
     console.log(gameState);
+    gameState++;
+    console.log(a1.innerHTML);
+    console.log(a2.innerHTML);
+    winConditions();
   } else if (gameState == 1 && this.innerHTML == false) {
     this.innerHTML = "X";
-    gameState--;
     console.log(gameState);
+    gameState--;
+    console.log(a1.innerHTML);
+    console.log(a2.innerHTML);
     winConditions();
   }
 }
-
-console.log(a1.innerHTML);
-console.log(a2.innerHTML);
 
 function winConditions() {
   if (a1.innerHTML === a2.innerHTML && a2.innerHTML == a3.innerHTML) {
     console.log("You win");
   }
 }
+
+function newSetGameMarker() {}
+
